@@ -58,7 +58,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="AccName" max="32767" attributes="0"/>
+                      <Component id="AccNameTb" max="32767" attributes="0"/>
                       <Component id="FaNameTb" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" pref="263" max="32767" attributes="0"/>
                       <Component id="ACCNUMTb" alignment="0" max="32767" attributes="0"/>
@@ -123,7 +123,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="AccName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="AccNameTb" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -272,7 +272,7 @@
             <Property name="text" type="java.lang.String" value="Imi&#x119;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="AccName">
+        <Component class="javax.swing.JTextField" name="AccNameTb">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -282,7 +282,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccNameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccNameTbActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">

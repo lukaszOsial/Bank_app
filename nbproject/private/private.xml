@@ -5,9 +5,9 @@
         <group>
             <file>file:/C:/Projekty/Bank/src/bank/Splash.java</file>
             <file>file:/C:/Projekty/Bank/src/bank/Login.java</file>
-            <file>file:/C:/Projekty/Bank/src/bank/MainMenu.java</file>
             <file>file:/C:/Projekty/Bank/src/bank/Withdraw.java</file>
             <file>file:/C:/Projekty/Bank/src/bank/FastCash.java</file>
+            <file>file:/C:/Projekty/Bank/src/bank/SignUp.java</file>
             <file>file:/C:/Projekty/Bank/src/bank/ChangePin.java</file>
             <file>file:/C:/Projekty/Bank/src/bank/Deposit.java</file>
             <file>file:/C:/Projekty/Bank/src/bank/MiniStatement.java</file>

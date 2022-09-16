@@ -4,8 +4,9 @@
  */
 package bank;
 
-import com.sun.jdi.connect.spi.Connection;
 
+import java.sql.*;  
+import javax.swing.JOptionPane;
 /**
  *
  * @author Kasia
@@ -35,7 +36,7 @@ public class SignUp extends javax.swing.JFrame {
         ACCNUMTb = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        AccName = new javax.swing.JTextField();
+        AccNameTb = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         FaNameTb = new javax.swing.JTextField();
         PINTb = new javax.swing.JTextField();
@@ -107,11 +108,11 @@ public class SignUp extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jLabel4.setText("Imię");
 
-        AccName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        AccName.setForeground(new java.awt.Color(255, 0, 0));
-        AccName.addActionListener(new java.awt.event.ActionListener() {
+        AccNameTb.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AccNameTb.setForeground(new java.awt.Color(255, 0, 0));
+        AccNameTb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AccNameActionPerformed(evt);
+                AccNameTbActionPerformed(evt);
             }
         });
 
@@ -220,7 +221,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(AccName)
+                    .addComponent(AccNameTb)
                     .addComponent(FaNameTb)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                     .addComponent(ACCNUMTb, javax.swing.GroupLayout.Alignment.LEADING))
@@ -270,7 +271,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AccName)
+                            .addComponent(AccNameTb)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -332,9 +333,9 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ACCNUMTbActionPerformed
 
-    private void AccNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccNameActionPerformed
+    private void AccNameTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccNameTbActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AccNameActionPerformed
+    }//GEN-LAST:event_AccNameTbActionPerformed
 
     private void FaNameTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FaNameTbActionPerformed
         // TODO add your handling code here:
@@ -362,9 +363,35 @@ public class SignUp extends javax.swing.JFrame {
 
     Connection Con = null;
     PreparedStatement pst = null;
+    ResultSet Rs = null;
+    Statement St = null;
     
     private void SubmitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitBtnMouseClicked
-        
+        if(ACCNUMTb.getText().isEmpty() || AccNameTb.getText().isEmpty() || FaNameTb.getText().isEmpty() || PhoneTb.getText().isEmpty() || 
+                AddressTb.getText().isEmpty() || OccupationTb.getText().isEmpty() || PINTb.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Wypełnij cały formularz");
+        }else{
+            try {
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
+                PreparedStatement Add = Con.prepareStatement("insert into AccountTbl values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                Add.setInt(1, Integer.valueOf(ACCNUMTb.getText()));
+                Add.setString(2, AccNameTb.getText());
+                Add.setString(3, FaNameTb.getText());
+                Add.setString(4, DobTb.getDate().toString());
+                Add.setString(5, PhoneTb.getText());
+                Add.setString(6, AddressTb.getText());
+                Add.setString(7, EducCb.getSelectedItem().toString());
+                Add.setString(8, OccupationTb.getText());
+                Add.setInt(9, 0);
+                Add.setInt(10, Integer.valueOf(PINTb.getText()));
+                int row = Add.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Konto utworzone");
+                Con.close();
+            } catch (Exception e) {
+                
+            }
+        }
     }//GEN-LAST:event_SubmitBtnMouseClicked
 
     /**
@@ -404,7 +431,7 @@ public class SignUp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ACCNUMTb;
-    private javax.swing.JTextField AccName;
+    private javax.swing.JTextField AccNameTb;
     private javax.swing.JTextArea AddressTb;
     private com.toedter.calendar.JDateChooser DobTb;
     private javax.swing.JComboBox<String> EducCb;
@@ -429,4 +456,5 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
 }
