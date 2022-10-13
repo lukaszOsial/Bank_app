@@ -366,6 +366,17 @@ public class SignUp extends javax.swing.JFrame {
     ResultSet Rs = null;
     Statement St = null;
     
+    private void Clear() {
+        ACCNUMTb.setText("");
+        AccNameTb.setText("");
+        FaNameTb.setText("");
+        PhoneTb.setText("");
+        AddressTb.setText("");
+        EducCb.setSelectedIndex(-1);
+        OccupationTb.setText("");
+        PINTb.setText("");
+    }
+    
     private void SubmitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitBtnMouseClicked
         if(ACCNUMTb.getText().isEmpty() || AccNameTb.getText().isEmpty() || FaNameTb.getText().isEmpty() || PhoneTb.getText().isEmpty() || 
                 AddressTb.getText().isEmpty() || OccupationTb.getText().isEmpty() || PINTb.getText().isEmpty())
@@ -374,7 +385,7 @@ public class SignUp extends javax.swing.JFrame {
         }else{
             try {
                 Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
-                PreparedStatement Add = Con.prepareStatement("insert into AccountTbl values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                PreparedStatement Add = Con.prepareStatement("insert into AccountTbl values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 Add.setInt(1, Integer.valueOf(ACCNUMTb.getText()));
                 Add.setString(2, AccNameTb.getText());
                 Add.setString(3, FaNameTb.getText());
@@ -388,8 +399,9 @@ public class SignUp extends javax.swing.JFrame {
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Konto utworzone");
                 Con.close();
+                Clear();
             } catch (Exception e) {
-                
+                JOptionPane.showMessageDialog(this, e);
             }
         }
     }//GEN-LAST:event_SubmitBtnMouseClicked
