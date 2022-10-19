@@ -89,7 +89,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         PasswordTb.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        PasswordTb.setText("jPasswordField1");
         PasswordTb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordTbActionPerformed(evt);
@@ -219,13 +218,13 @@ public class Login extends javax.swing.JFrame {
         if(UnameTb.getText().isEmpty() || PasswordTb.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Podaj numer konta i hasło");
         } else {
-            String Query = "select * from Accounttbl where AccName='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
+            String Query = "select * from accounttbl where AccNum='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
             try {
                 Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
                 St = Con.createStatement();
                 Rs =St.executeQuery(Query);
                 if(Rs.next()) {
-                    new MainMenu().setVisible(true);
+                    new MainMenu(Rs.getInt(1)).setVisible(true);
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Zły numer konta lub hasło");
