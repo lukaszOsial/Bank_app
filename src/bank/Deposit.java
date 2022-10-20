@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Deposit extends javax.swing.JFrame {
@@ -21,27 +24,27 @@ public class Deposit extends javax.swing.JFrame {
     }
     
     Connection Con = null;
-    PreparedStatement pst = null;
-    ResultSet Rs = null;
-    Statement St = null;
+    PreparedStatement pst = null, pst1 = null;
+    ResultSet Rs = null, Rs1 = null;
+    Statement St = null, St1 = null;
     int OldBalance;
     
     private void GetBalance() {
         String Query = "select * from accounttbl where AccNum='"+MyAccNum +"'";
             try {
                 Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
-                St = Con.createStatement();
-                Rs =St.executeQuery(Query);
-                if(Rs.next()) {
-                    OldBalance = Rs.getInt(1);
+                St1 = Con.createStatement();
+                Rs1 =St1.executeQuery(Query);
+                if(Rs1.next()) {
+                    OldBalance = Rs1.getInt(9);
                     
                 } else {
-                    //JOptionPane.showMessageDialog(this, "Zły numer konta lub hasło");
+                    
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
             }}
-    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -178,11 +181,23 @@ public class Deposit extends javax.swing.JFrame {
     }//GEN-LAST:event_DEPOSITBTNActionPerformed
 
     private void DEPOSITBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DEPOSITBTNMouseClicked
-        if(amountB.getText().isEmpty() || AmountTb.getText().equals(0)) {
-            JOptionPane.showMessageDialog(thid, "Wprowadz poprawna kwote");
+        if(AmountTb.getText().isEmpty() || AmountTb.getText().equals(0)) {
+            JOptionPane.showMessageDialog(this, "Wprowadz poprawna kwote");
         } else {
-            String Query = "Update AccountTbl set Balance ? where AccNum ?";
-            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
+            try {
+                String Query = "Update AccountTbl set Balance=? where AccNum=?";
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
+                PreparedStatement ps = Con.prepareStatement(Query);
+                ps.setInt(1, OldBalance + Integer.valueOf(AmountTb.getText()));
+                ps.setInt(2, MyAccNum);
+                if(ps.executeUpdate() == 1) {
+                    JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Brakuje informacji");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+            }
         }
     }//GEN-LAST:event_DEPOSITBTNMouseClicked
     
