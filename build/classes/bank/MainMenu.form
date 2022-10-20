@@ -61,7 +61,7 @@
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jButton6" max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="227" max="-2" attributes="0"/>
+                              <Component id="WithdrawBtn" min="-2" pref="227" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
@@ -91,7 +91,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="WithdrawBtn" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="stanKonta" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="DepositBTN" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
@@ -176,7 +176,7 @@
             <Property name="text" type="java.lang.String" value="Numer konta:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="WithdrawBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="20" style="0"/>
@@ -187,7 +187,8 @@
             <Property name="text" type="java.lang.String" value="Wyp&#x142;ata"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="WithdrawBtnMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WithdrawBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DepositBTN">

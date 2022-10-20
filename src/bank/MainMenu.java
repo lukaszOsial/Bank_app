@@ -24,7 +24,7 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        WithdrawBtn = new javax.swing.JButton();
         DepositBTN = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         stanKonta = new javax.swing.JButton();
@@ -74,12 +74,17 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
         jLabel3.setText("Numer konta:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 204, 204));
-        jButton1.setText("Wypłata");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        WithdrawBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        WithdrawBtn.setForeground(new java.awt.Color(0, 204, 204));
+        WithdrawBtn.setText("Wypłata");
+        WithdrawBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WithdrawBtnMouseClicked(evt);
+            }
+        });
+        WithdrawBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                WithdrawBtnActionPerformed(evt);
             }
         });
 
@@ -164,7 +169,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(WithdrawBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -186,7 +191,7 @@ public class MainMenu extends javax.swing.JFrame {
                     .addComponent(AccNumlbl))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(WithdrawBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(stanKonta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DepositBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
@@ -214,9 +219,9 @@ public class MainMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void WithdrawBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WithdrawBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_WithdrawBtnActionPerformed
 
     private void DepositBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositBTNActionPerformed
         // TODO add your handling code here:
@@ -246,6 +251,11 @@ public class MainMenu extends javax.swing.JFrame {
         new Deposit(MyAccNum).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_DepositBTNMouseClicked
+
+    private void WithdrawBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WithdrawBtnMouseClicked
+        new Withdraw(MyAccNum).setVisible(true);
+        this.dispose();                  
+    }//GEN-LAST:event_WithdrawBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -285,7 +295,7 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AccNumlbl;
     private javax.swing.JButton DepositBTN;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton WithdrawBtn;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
