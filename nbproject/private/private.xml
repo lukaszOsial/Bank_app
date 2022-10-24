@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projekty/Bank/src/bank/Login.java</file>
-            <file>file:/C:/Projekty/Bank/src/bank/Balance.java</file>
-            <file>file:/C:/Projekty/Bank/src/bank/MainMenu.java</file>
-            <file>file:/C:/Projekty/Bank/src/bank/Withdraw.java</file>
-            <file>file:/C:/Projekty/Bank/src/bank/Deposit.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/FastCash.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/Withdraw.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/Splash.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/MainMenu.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/Deposit.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/Balance.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/ChangePin.java</file>
+            <file>file:/C:/Projekty/Bank/src/ATM/Login.java</file>
         </group>
     </open-files>
 </project-private>

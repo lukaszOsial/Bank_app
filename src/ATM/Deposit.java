@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Deposit extends javax.swing.JFrame {
@@ -121,6 +118,11 @@ public class Deposit extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jLabel4.setText("Cofnij");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,6 +182,7 @@ public class Deposit extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DEPOSITBTNActionPerformed
 
+    
     private void DEPOSITBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DEPOSITBTNMouseClicked
         if(AmountTb.getText().isEmpty() || AmountTb.getText().equals(0)) {
             JOptionPane.showMessageDialog(this, "Wprowadz poprawna kwote");
@@ -192,6 +195,8 @@ public class Deposit extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu(MyAccNum).setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -200,6 +205,11 @@ public class Deposit extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_DEPOSITBTNMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        new MainMenu(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
     
     /**
      * @param args the command line arguments

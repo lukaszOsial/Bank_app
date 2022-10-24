@@ -181,6 +181,11 @@ public class FastCash extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jLabel4.setText("Wyloguj");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         BalLbl.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         BalLbl.setForeground(new java.awt.Color(0, 204, 204));
@@ -283,6 +288,8 @@ public class FastCash extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu().setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -304,6 +311,8 @@ public class FastCash extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu().setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -325,6 +334,8 @@ public class FastCash extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu().setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -346,6 +357,8 @@ public class FastCash extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu().setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -367,6 +380,8 @@ public class FastCash extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu().setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -388,6 +403,8 @@ public class FastCash extends javax.swing.JFrame {
                 ps.setInt(2, MyAccNum);
                 if(ps.executeUpdate() == 1) {
                     JOptionPane.showMessageDialog(this, "Stan konta zaktualizowany");
+                    new MainMenu(MyAccNum).setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Brakuje informacji");
                 }
@@ -396,6 +413,11 @@ public class FastCash extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_FastCash500BtnMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        new MainMenu(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
