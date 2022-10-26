@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         UnameTb = new javax.swing.JTextField();
         PasswordTb = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
@@ -56,8 +56,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Bank");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel2.setText("X");
+        Exit.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Exit.setText("X");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -67,7 +72,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(266, 266, 266)
-                .addComponent(jLabel2)
+                .addComponent(Exit)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -76,7 +81,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(Exit))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -234,6 +239,10 @@ public class Login extends javax.swing.JFrame {
             }}
     }//GEN-LAST:event_LoginBtnMouseClicked
 
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        System.exit(1);
+    }//GEN-LAST:event_ExitMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -270,12 +279,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Exit;
     private javax.swing.JButton LoginBtn;
     private javax.swing.JPasswordField PasswordTb;
     private javax.swing.JTextField UnameTb;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

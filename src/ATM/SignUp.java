@@ -15,7 +15,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         ACCNUMTb = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -46,8 +46,13 @@ public class SignUp extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel2.setText("X");
+        Exit.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Exit.setText("X");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Zakładanie konta");
@@ -60,7 +65,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(250, 250, 250)
-                .addComponent(jLabel2)
+                .addComponent(Exit)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -69,7 +74,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2))
+                        .addComponent(Exit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel1)))
@@ -189,7 +194,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel12.setText("Cofnij");
+        jLabel12.setText("Wstecz");
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
@@ -389,6 +394,8 @@ public class SignUp extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Konto utworzone");
                 Con.close();
                 Clear();
+                new Login().setVisible(true);
+                this.dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
             }
@@ -396,9 +403,13 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_SubmitBtnMouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        new MainMenu().setVisible(true);
+        new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        System.exit(1);
+    }//GEN-LAST:event_ExitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -441,6 +452,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextArea AddressTb;
     private com.toedter.calendar.JDateChooser DobTb;
     private javax.swing.JComboBox<String> EducCb;
+    private javax.swing.JLabel Exit;
     private javax.swing.JTextField FaNameTb;
     private javax.swing.JTextField OccupationTb;
     private javax.swing.JTextField PINTb;
@@ -450,7 +462,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

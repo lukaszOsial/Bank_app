@@ -33,7 +33,7 @@ public class ChangePin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         NewPin1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -65,7 +65,7 @@ public class ChangePin extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel4.setText("Cofnij");
+        jLabel4.setText("Wstecz");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -77,8 +77,13 @@ public class ChangePin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Zmiana kodu PIN");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel2.setText("X");
+        Exit.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Exit.setText("X");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -88,7 +93,7 @@ public class ChangePin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(111, 111, 111)
-                .addComponent(jLabel2)
+                .addComponent(Exit)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -97,7 +102,7 @@ public class ChangePin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(Exit))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -207,6 +212,10 @@ public class ChangePin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        System.exit(1);
+    }//GEN-LAST:event_ExitMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -244,10 +253,10 @@ public class ChangePin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ChangePinBtn;
+    private javax.swing.JLabel Exit;
     private javax.swing.JTextField NewPin;
     private javax.swing.JTextField NewPin1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

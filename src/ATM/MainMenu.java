@@ -23,7 +23,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        ExitBtn = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         WithdrawBtn = new javax.swing.JButton();
         DepositBTN = new javax.swing.JButton();
@@ -39,6 +39,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Bank");
@@ -46,11 +51,11 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Wybierz transakcję do realizacji");
 
-        ExitBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        ExitBtn.setText("X");
-        ExitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Exit.setText("X");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitBtnMouseClicked(evt);
+                ExitMouseClicked(evt);
             }
         });
 
@@ -67,7 +72,7 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(317, 317, 317)
-                        .addComponent(ExitBtn)
+                        .addComponent(Exit)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -76,7 +81,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(ExitBtn))
+                    .addComponent(Exit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
@@ -274,9 +279,9 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ChangePinBtnMouseClicked
 
-    private void ExitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitBtnMouseClicked
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
         System.exit(1);
-    }//GEN-LAST:event_ExitBtnMouseClicked
+    }//GEN-LAST:event_ExitMouseClicked
 
     private void FastCashBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FastCashBtnMouseClicked
         new FastCash(MyAccNum).setVisible(true);
@@ -287,6 +292,10 @@ public class MainMenu extends javax.swing.JFrame {
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -328,7 +337,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton BalanceBtn;
     private javax.swing.JButton ChangePinBtn;
     private javax.swing.JButton DepositBTN;
-    private javax.swing.JLabel ExitBtn;
+    private javax.swing.JLabel Exit;
     private javax.swing.JButton FastCashBtn;
     private javax.swing.JButton WithdrawBtn;
     private javax.swing.JLabel jLabel1;
